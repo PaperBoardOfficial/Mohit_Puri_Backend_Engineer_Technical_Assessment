@@ -1,3 +1,10 @@
+# Running the Application with Docker Compose
+
+To run the application using Docker Compose, execute the following command in your terminal:
+
+```bash
+docker-compose up -d
+
 # Choice of Framework & Library
 
 **Please explain why you chose the particular framework or library.**
