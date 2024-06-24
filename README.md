@@ -4,6 +4,7 @@ To run the application using Docker Compose, execute the following command in yo
 
 ```bash
 docker-compose up -d
+```
 
 # Choice of Framework & Library
 
