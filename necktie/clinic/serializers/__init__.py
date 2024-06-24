@@ -1,0 +1,1 @@
+from .clinic_serializer import ClinicSerializer
