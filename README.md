@@ -1,6 +1,6 @@
 ![Model Diagram](models.svg "Model Diagram")
 
-# Running the Application with Docker Compose
+## Running the Application with Docker Compose
 
 Before running the project, you need to set up the required environment variables:
 
