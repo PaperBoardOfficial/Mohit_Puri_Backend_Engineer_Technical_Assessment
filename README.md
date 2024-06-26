@@ -14,6 +14,27 @@ To run the application using Docker Compose, execute the following command in yo
 docker-compose up -d
 ```
 
+## API Documentation
+
+### ReDoc
+
+ReDoc provides a clean and interactive documentation of the API. It's an alternative to Swagger UI with a focus on simplicity and readability.
+
+To view the API documentation using ReDoc, navigate to:
+```bash
+localhost:8000/redoc
+```
+
+### Swagger UI
+
+Swagger UI offers interactive API documentation, allowing users to explore the API's endpoints directly through the browser.
+
+To access the Swagger UI documentation, visit:
+```bash
+localhost:8000/swagger
+```
+
+
 # Choice of Framework & Library
 
 **Please explain why you chose the particular framework or library.**
@@ -60,7 +81,7 @@ Here's an example of how to make a POST request to create a doctor:
 
 ```sh
 curl  -X POST \
-  'http://127.0.0.1:8000/api/doctor/' \
+  'http://127.0.0.1:8000/api/v1/doctor/' \
   --header 'Accept: */*' \
   --header 'Content-Type: application/json' \
   --data-raw '{
@@ -110,7 +131,7 @@ Here's an example of how to make a GET request to get all doctors:
 
 ```sh
 curl  -X GET \
-  'http://127.0.0.1:8000/api/doctor/' \
+  'http://127.0.0.1:8000/api/v1/doctor/' \
   --header 'Accept: */*'
   ```
 
@@ -118,7 +139,7 @@ curl  -X GET \
 
 ```sh
 curl  -X GET \
-  'http://127.0.0.1:8000/api/doctor/<id>' \
+  'http://127.0.0.1:8000/api/v1/doctor/<id>' \
   --header 'Accept: */*'
   ```
 
@@ -126,6 +147,6 @@ Here's an example of how to make a GET request to get a doctor with some query p
 
   ```sh
   curl  -X GET \
-  'http://127.0.0.1:8000/api/doctor?language=English&district=New%20Territories&price_min=100&price_max=500&speciality=General%20Practitioner' \
+  'http://127.0.0.1:8000/api/v1/doctor?language=English&district=New%20Territories&price_min=100&price_max=500&speciality=General%20Practitioner' \
   --header 'Accept: */*'
   ```
