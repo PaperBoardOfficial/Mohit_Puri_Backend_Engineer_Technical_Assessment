@@ -20,7 +20,7 @@ docker-compose up -d
 
 - **Benefits & Drawbacks:**
 
-  - I chose Django and Django Rest Framework with PostgreSQL for the database because Django abstracts a lot of the basic code and is "batteries included," which helps to create features faster.
+  - I chose Django and Django Rest Framework with PostgreSQL for the database because Django abstracts a lot of the basic code and is "batteries included," which helps to create features faster. I have also used Redis cache for caching the get requests.
 
 - **Assumptions Underlying the Choice:**
   - I assumed speed is not a big issue. I have used WSGI for Django. I could have used FastAPI if speed was a concern.
