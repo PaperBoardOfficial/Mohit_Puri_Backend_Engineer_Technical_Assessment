@@ -52,7 +52,7 @@ There are several steps which can be taken:
 
 **Any other assumptions and opinions you have taken throughout the assessments?**
 
-- I assumed that it is a simple project; hence, I did not use Redis cache. Also, when one gets the doctor, then clinic details are also shown, even though clinic data is in another table. Also, when I create a doctor, I am passing the clinic detail as well. Ideally, the frontend should first fetch different clinics from the backend and send the respective clinic id only to the backend while creating a doctor. This would ensure separation of concern. For this, I have created a List API for clinics.
+- When one queries the doctor, then clinic details are also shown, even though clinic data is in another table. Also, when I create a doctor, I am passing the clinic detail as well.
 
 ## API Usage
 
