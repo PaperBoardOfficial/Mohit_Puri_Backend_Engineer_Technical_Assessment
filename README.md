@@ -1,5 +1,13 @@
 # Running the Application with Docker Compose
 
+Before running the project, you need to set up the required environment variables:
+
+Copy the `.env.example` file to a new file named `.env`:
+
+```bash
+cp .env.example .env
+```
+
 To run the application using Docker Compose, execute the following command in your terminal:
 
 ```bash
@@ -11,6 +19,7 @@ docker-compose up -d
 **Please explain why you chose the particular framework or library.**
 
 - **Benefits & Drawbacks:**
+
   - I chose Django and Django Rest Framework with PostgreSQL for the database because Django abstracts a lot of the basic code and is "batteries included," which helps to create features faster.
 
 - **Assumptions Underlying the Choice:**
@@ -44,3 +53,79 @@ There are several steps which can be taken:
 **Any other assumptions and opinions you have taken throughout the assessments?**
 
 - I assumed that it is a simple project; hence, I did not use Redis cache. Also, when one gets the doctor, then clinic details are also shown, even though clinic data is in another table. Also, when I create a doctor, I am passing the clinic detail as well. Ideally, the frontend should first fetch different clinics from the backend and send the respective clinic id only to the backend while creating a doctor. This would ensure separation of concern. For this, I have created a List API for clinics.
+
+## API Usage
+
+Here's an example of how to make a POST request to create a doctor:
+
+```sh
+curl  -X POST \
+  'http://127.0.0.1:8000/api/doctor/' \
+  --header 'Accept: */*' \
+  --header 'Content-Type: application/json' \
+  --data-raw '{
+  "clinic": {
+    "name": "TH Medical Centre",
+    "address": "Shop 2, G/F, Treasure Garden, 1 On Chee Road, Tai Po, New Territories",
+    "district": "New Territories"
+  },
+  "consultation_detail": {
+    "inclusive": true,
+    "days": 3,
+    "consultation_fee": "200.00",
+    "member_exclusive_price": "150.00"
+  },
+  "schedule": [
+    {
+      "day_of_week": "Monday",
+      "start_time": "09:00:00",
+      "end_time": "20:00:00"
+    },
+    {
+      "day_of_week": "Wednesday",
+      "start_time": "09:00:00",
+      "end_time": "13:30:00"
+    },
+    {
+      "day_of_week": "Thursday",
+      "start_time": "09:00:00",
+      "end_time": "20:00:00"
+    },
+    {
+      "day_of_week": "Saturday",
+      "start_time": "15:00:00",
+      "end_time": "20:00:00"
+    }
+  ],
+  "phone": [
+    "29730773",
+    "29730833"
+  ],
+  "name": "Au Lik Hang",
+  "speciality": "General Practitioner",
+  "language": "English"
+}'
+```
+Here's an example of how to make a GET request to get all doctors:
+
+```sh
+curl  -X GET \
+  'http://127.0.0.1:8000/api/doctor/' \
+  --header 'Accept: */*'
+  ```
+
+  Here's an example of how to make a GET request to get a doctor with id:
+
+```sh
+curl  -X GET \
+  'http://127.0.0.1:8000/api/doctor/<id>' \
+  --header 'Accept: */*'
+  ```
+
+Here's an example of how to make a GET request to get a doctor with some query params:
+
+  ```sh
+  curl  -X GET \
+  'http://127.0.0.1:8000/api/doctor?language=English&district=New%20Territories&price_min=100&price_max=500&speciality=General%20Practitioner' \
+  --header 'Accept: */*'
+  ```

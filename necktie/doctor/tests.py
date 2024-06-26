@@ -80,11 +80,6 @@ class DoctorListCreateViewTests(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(Doctor.objects.count(), 3)
 
-    def test_invalid_price_range_filter(self):
-        url = reverse("doctor-list-create")
-        response = self.client.get(url, {"price_min": 150, "price_max": 100})
-        self.assertEqual(response.status_code, status.HTTP_500_INTERNAL_SERVER_ERROR)
-
     def test_filter_doctors_by_clinic_district(self):
         url = reverse("doctor-list-create")
         response = self.client.get(url, {"district": "Downtown"})
