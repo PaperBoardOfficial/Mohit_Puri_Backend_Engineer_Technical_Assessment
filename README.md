@@ -1,5 +1,7 @@
 ![Model Diagram](models.svg "Model Diagram")
 
+[Problem Statement](./problem_statement.pdf)
+
 ## Running the Application with Docker Compose
 
 Before running the project, you need to set up the required environment variables:
